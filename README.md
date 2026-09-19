@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="GGamers-Client.exe"><img src="https://img.shields.io/badge/version-3.4.3-19E3C0?style=for-the-badge" alt="version"></a>
+  <a href="GGamers-Client.exe"><img src="https://img.shields.io/badge/version-3.5.0-19E3C0?style=for-the-badge" alt="version"></a>
   &nbsp;
   <a href="GGamers-Client.exe"><img src="https://img.shields.io/badge/⬇%20Download-GGamers--Client.exe-2ecc71?style=for-the-badge" alt="download"></a>
 </p>
@@ -52,7 +52,7 @@ built for **online play and streaming**: a self-healing UDP relay, per-app
 routing that never half-tunnels a connection, deep socket tuning, and a clean
 UI that stays out of your way.
 
-Point it at any SOCKS5 server (your own, or a subscription like **Mudfish**)
+Point it at any SOCKS5 server (your own, or a subscription service)
 and play. Under the hood it uses the **WinDivert** kernel driver to capture
 outbound packets, NATs them to a local listener, and forwards them over SOCKS5
 (`CONNECT` for TCP, `UDP ASSOCIATE` for UDP) — no per-app proxy settings, no
@@ -68,7 +68,7 @@ browser extensions, no TAP adapter.
   **Proxy Debug** (only apps you launch from inside).
 - **TCP &amp; UDP** — full `CONNECT` and `UDP ASSOCIATE`, with a supervised,
   self-healing UDP association. Falls back to TCP-only if your server has no UDP.
-- **Subscribed servers** — built-in **Mudfish** server list: fetched, ping-sorted,
+- **Subscribed servers** — built-in **subscription** server list: fetched, ping-sorted,
   searchable, with **pinnable ★ favourites** that stay on top regardless of ping.
 - **Smart bypass** — keep web / voice / streaming / CDN traffic off the proxy so
   only real game traffic is tunneled — in Global *and* Per-app mode.
@@ -77,19 +77,26 @@ browser extensions, no TAP adapter.
 - **Encrypted passwords**, **Windows notifications**, **deep socket tuning**, and
   a full **packet toolbox** (Advanced).
 
-## Download &amp; run
+## Download, install &amp; run
 
 1. Click **⬇ Download** above to get **`GGamers-Client.exe`**.
-2. **Right-click → Run as administrator.** The app uses the WinDivert kernel
-   driver to capture traffic, which needs elevation. (It requests it
-   automatically; approve the UAC prompt.)
-3. On first launch, pick **Basic** or **Advanced**.
-4. Enter a SOCKS5 server on the **Connection** tab.
-5. *(Optional)* Click **🔎 Test connection** to confirm it works.
-6. Choose your mode on **Mode / Apps**, then press **Start**.
+2. **Run it.** The first time, it installs itself into
+   `%LOCALAPPDATA%\GGamers`, adds **Desktop + Start-Menu shortcuts**, and
+   launches the app. (Run the downloaded file again any time for
+   **Repair / Uninstall**.)
+3. Launch GGamers as **Administrator** — it uses the WinDivert kernel driver to
+   capture traffic, which needs elevation (it requests it automatically; approve
+   the UAC prompt). The shortcuts are set for this.
+4. On first launch, pick **Basic** or **Advanced**.
+5. Enter a SOCKS5 server on the **Connection** tab (Custom, or the built-in
+   **Subscription** — username / password + pick a server).
+6. *(Optional)* Click **🔎 Test connection** to confirm it works.
+7. Choose your mode on **Mode / Apps**, then press **Start**.
 
-It's a single portable `.exe` — no installer. It writes its `config.json`,
-`subscribed-server.json` and a log next to itself.
+Everything lives in one permanent folder, so config and settings survive every
+update. **Updates are one click:** the app tells you when a new version is out,
+or open **updater** from the install folder / Start Menu to check yourself — it
+downloads and installs the update in place and relaunches.
 
 > **SmartScreen note:** the download isn't code-signed yet, so Windows may show
 > a "Windows protected your PC" prompt — choose **More info → Run anyway**.
@@ -114,7 +121,7 @@ On the **Connection** tab the SOCKS5 Server box has two tabs:
 
 - **Custom** — enter host, port, and optional username / password. Recent hosts
   are remembered (passwords encrypted).
-- **Subscribed** — a provider list. **Mudfish** is built in: set your
+- **Subscribed** — a provider list. a **subscription** is built in: set your
   username / password once, click **↻ Update list** to fetch every node, and it
   pings them all and sorts by latency. Search by name / country / IP, **★ pin**
   your favourites to the top, and **⚡ Ping all** to re-measure without
@@ -150,7 +157,7 @@ click (this is what Basic mode keeps on permanently). What each option does:
 | **Boost relay threads (TIME_CRITICAL)** | Raises the UDP relay threads to the highest scheduling priority. | On for gaming. |
 | **Process priority HIGH + 1 ms timer** | Raises the whole app to HIGH priority and switches Windows to a 1 ms scheduler tick while running (reverted on Stop). | On for gaming; costs a little laptop battery. |
 | **Inject replies directly** *(experimental)* | Delivers server→app packets straight into the inbound path instead of a loopback hop (self-tests first; falls back if the test packet doesn't arrive). | Optional; shaves ~0.1–0.3 ms per reply. |
-| **Auto re-associate on relay silence** | Rebuilds the UDP session if it goes silent while you keep sending. **Keep ON** for servers that kill idle sessions (self-hosted Xray "mixed"); **turn OFF** for a stable pure-SOCKS5 relay (Mudfish) where a brief gap is normal and re-associating would cause a spike. | See note below. |
+| **Auto re-associate on relay silence** | Rebuilds the UDP session if it goes silent while you keep sending. **Keep ON** for servers that kill idle sessions (self-hosted Xray "mixed"); **turn OFF** for a stable pure-SOCKS5 relay where a brief gap is normal and re-associating would cause a spike. | See note below. |
 | **Send / recv buffers, TTL, broadcast** | Standard socket knobs. | Defaults are fine. |
 
 > **Lag-spike tip:** if you get an occasional ~1-second stall on an otherwise
@@ -249,7 +256,7 @@ On startup the app checks this repo for a newer release:
 ## Troubleshooting
 
 - **"Must run as Administrator"** — right-click the exe → *Run as administrator*.
-- **A random ~1-second lag spike** on a stable server (Mudfish etc.) — turn
+- **A random ~1-second lag spike** on a stable SOCKS5 service — turn
   **off** *Auto re-associate on relay silence* in **Tuning → UDP**.
 - **Game's 443 traffic still going through the proxy** — tick **Bypass web /
   voice / streaming** on the Connection tab (works in Per-app mode too).
@@ -261,7 +268,7 @@ On startup the app checks this repo for a newer release:
 ## FAQ
 
 **Does it need a specific proxy?** Any SOCKS5 server works (yours or a
-subscription like Mudfish). UDP needs a server that supports `UDP ASSOCIATE`; if
+subscription service). UDP needs a server that supports `UDP ASSOCIATE`; if
 not, use TCP-only mode.
 
 **Will it get me VAC/anti-cheat banned?** It's a network router, not a game
