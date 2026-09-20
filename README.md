@@ -244,10 +244,9 @@ On startup the app checks this repo for a newer release:
 
 ## Privacy &amp; security
 
-- **Passwords are encrypted at rest** with Windows **DPAPI**, tied to your
-  Windows account — never stored in plaintext, and useless if the config file is
-  copied to another machine. Password fields are modify-only (you can't copy the
-  value back out).
+- **Passwords are encrypted at rest** and tied to your Windows account — never
+  stored in plaintext, and useless if the config file is copied to another
+  machine. Password fields are modify-only (you can't copy the value back out).
 - The app talks only to the **proxy server you configure** and — on startup — to
   **GitHub** for the update check. Nothing else.
 - Config, subscription and log files live **next to the exe**; delete the folder
