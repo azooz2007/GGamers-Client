@@ -5,17 +5,17 @@
 <h1 align="center">GGamers Proxy Client</h1>
 
 <p align="center">
-  <b>Low-latency SOCKS5 tunnel for online gaming — TCP &amp; UDP, per-app or global.</b>
+  <b>Low-latency tunnel for online gaming — SOCKS5 &amp; TUIC v5 (QUIC), TCP &amp; UDP, per-app or global.</b>
 </p>
 
 <p align="center">
-  <a href="GGamers-Client.exe"><img src="https://img.shields.io/badge/version-3.5.0-19E3C0?style=for-the-badge" alt="version"></a>
+  <a href="GGamers-Client.exe"><img src="https://img.shields.io/badge/version-3.6.0-19E3C0?style=for-the-badge" alt="version"></a>
   &nbsp;
   <a href="GGamers-Client.exe"><img src="https://img.shields.io/badge/⬇%20Download-GGamers--Client.exe-2ecc71?style=for-the-badge" alt="download"></a>
 </p>
 
 <p align="center">
-  <sub>Windows 10/11 · 64-bit · run as Administrator · ~40&nbsp;MB single file</sub>
+  <sub>Windows 10/11 · 64-bit · run as Administrator · single file</sub>
 </p>
 
 > **Download the latest build:** click **Download** above (it grabs
@@ -46,15 +46,16 @@
 
 ## What is it?
 
-GGamers routes your game — or your whole PC — through a **SOCKS5 proxy**, the
-way a gaming VPN would, but with far more control and no virtual adapter. It's
-built for **online play and streaming**: a self-healing UDP relay, per-app
-routing that never half-tunnels a connection, deep socket tuning, and a clean
-UI that stays out of your way.
+GGamers routes your game — or your whole PC — through a proxy, the way a gaming
+VPN would, but with far more control and no virtual adapter. It's built for
+**online play and streaming**: a self-healing UDP relay, per-app routing that
+never half-tunnels a connection, deep socket tuning, and a clean UI that stays
+out of your way.
 
-Point it at any SOCKS5 server (your own, or a subscription service)
-and play. Under the hood it uses the **WinDivert** kernel driver to capture
-outbound packets, NATs them to a local listener, and forwards them over SOCKS5
+Point it at a **SOCKS5 server** (your own, or a subscription service) **or a
+TUIC v5 server** (a modern QUIC transport that's great for gaming — just paste
+its share link) and play. Under the hood it uses the **WinDivert** kernel driver
+to capture outbound packets, NATs them to a local listener, and forwards them
 (`CONNECT` for TCP, `UDP ASSOCIATE` for UDP) — no per-app proxy settings, no
 browser extensions, no TAP adapter.
 
@@ -68,8 +69,11 @@ browser extensions, no TAP adapter.
   **Proxy Debug** (only apps you launch from inside).
 - **TCP &amp; UDP** — full `CONNECT` and `UDP ASSOCIATE`, with a supervised,
   self-healing UDP association. Falls back to TCP-only if your server has no UDP.
-- **Subscribed servers** — built-in **subscription** server list: fetched, ping-sorted,
-  searchable, with **pinnable ★ favourites** that stay on top regardless of ping.
+- **TUIC v5 (QUIC)** — paste a `tuic://` share link and the app runs a bundled
+  TUIC client for you (native UDP relay + BBR, tuned for games). Native UDP-over-
+  QUIC keeps latency low with no head-of-line blocking.
+- **Subscribed SOCKS5** — built-in subscription server list: fetched,
+  ping-sorted, searchable, with **pinnable ★ favourites** that stay on top.
 - **Smart bypass** — keep web / voice / streaming / CDN traffic off the proxy so
   only real game traffic is tunneled — in Global *and* Per-app mode.
 - **🔎 Test connection** before you Start; **live health** in the status bar;
@@ -88,8 +92,8 @@ browser extensions, no TAP adapter.
    capture traffic, which needs elevation (it requests it automatically; approve
    the UAC prompt). The shortcuts are set for this.
 4. On first launch, pick **Basic** or **Advanced**.
-5. Enter a SOCKS5 server on the **Connection** tab (Custom, or the built-in
-   **Subscription** — username / password + pick a server).
+5. Pick a server on the **Connection** tab — **Custom SOCKS5**, the built-in
+   **Subscribed SOCKS5**, or **TUIC v5** (paste a `tuic://` link).
 6. *(Optional)* Click **🔎 Test connection** to confirm it works.
 7. Choose your mode on **Mode / Apps**, then press **Start**.
 
@@ -117,15 +121,20 @@ game server never sees a mid-stream IP change.
 
 ## Connecting to a server
 
-On the **Connection** tab the SOCKS5 Server box has two tabs:
+On the **Connection** tab the **Server Connection** box has three tabs:
 
-- **Custom** — enter host, port, and optional username / password. Recent hosts
-  are remembered (passwords encrypted).
-- **Subscribed** — a provider list. a **subscription** is built in: set your
-  username / password once, click **↻ Update list** to fetch every node, and it
-  pings them all and sorts by latency. Search by name / country / IP, **★ pin**
-  your favourites to the top, and **⚡ Ping all** to re-measure without
-  re-downloading.
+- **Custom SOCKS5** — enter host, port, and optional username / password. Recent
+  hosts are remembered (passwords encrypted).
+- **Subscribed SOCKS5** — a built-in subscription list: set your username /
+  password once, click **↻ Update list** to fetch every node, and it pings them
+  all and sorts by latency. Search by name / country / IP, **★ pin** your
+  favourites to the top, and **⚡ Ping all** to re-measure without re-downloading.
+- **TUIC v5** — paste a `tuic://` share link (**📋 Paste from clipboard** or
+  *Add from link…*) and it's saved as an encrypted profile. The app runs a
+  bundled TUIC client that dials your server over QUIC; you just pick the
+  profile and Start. Each profile shows its server ping, **⚡ Ping all**
+  re-checks them, and the **⚙** button lets you edit a profile's parameters.
+  Everything comes straight from the link, so the client matches your server.
 
 Then optionally hit **🔎 Test connection** — it checks reachability + auth, does
 a real `CONNECT` with RTT, a `UDP ASSOCIATE`, and relays real datagrams both
@@ -156,8 +165,7 @@ click (this is what Basic mode keeps on permanently). What each option does:
 | **Disable WSAENETRESET** | Sibling of the above for network-reset notifications. | On if you see UDP resets. |
 | **Boost relay threads (TIME_CRITICAL)** | Raises the UDP relay threads to the highest scheduling priority. | On for gaming. |
 | **Process priority HIGH + 1 ms timer** | Raises the whole app to HIGH priority and switches Windows to a 1 ms scheduler tick while running (reverted on Stop). | On for gaming; costs a little laptop battery. |
-| **Inject replies directly** *(experimental)* | Delivers server→app packets straight into the inbound path instead of a loopback hop (self-tests first; falls back if the test packet doesn't arrive). | Optional; shaves ~0.1–0.3 ms per reply. |
-| **Auto re-associate on relay silence** | Rebuilds the UDP session if it goes silent while you keep sending. **Keep ON** for servers that kill idle sessions (self-hosted Xray "mixed"); **turn OFF** for a stable pure-SOCKS5 relay where a brief gap is normal and re-associating would cause a spike. | See note below. |
+| **Auto re-associate on relay silence** | Rebuilds the UDP session if it goes silent while you keep sending. **Keep ON** for servers that kill idle sessions; **turn OFF** for a stable relay where a brief gap is normal and re-associating would cause a spike. | See note below. |
 | **Send / recv buffers, TTL, broadcast** | Standard socket knobs. | Defaults are fine. |
 
 > **Lag-spike tip:** if you get an occasional ~1-second stall on an otherwise
@@ -208,8 +216,9 @@ Don't enable it on a clean connection — it just doubles your upload for nothin
 
 ## The window, tab by tab
 
-- **Connection** — SOCKS5 server (Custom / Subscribed), protocol (UDP relay,
-  TCP-only), bypass options, DNS, Test connection.
+- **Connection** — the server (Custom SOCKS5 / Subscribed SOCKS5 / TUIC v5),
+  protocol (UDP relay, TCP-only), bypass options, DNS, Test connection. (With
+  TUIC the transport carries UDP itself, so the protocol box isn't shown.)
 - **Tuning** *(Advanced)* — the gaming preset + all TCP/UDP knobs above.
 - **Mode / Apps** — Global / Per-app / Proxy Debug, and the per-app / debug app
   lists.
@@ -267,8 +276,9 @@ On startup the app checks this repo for a newer release:
 ## FAQ
 
 **Does it need a specific proxy?** Any SOCKS5 server works (yours or a
-subscription service). UDP needs a server that supports `UDP ASSOCIATE`; if
-not, use TCP-only mode.
+subscription service), or a **TUIC v5** server (paste its `tuic://` link). For
+SOCKS5, UDP needs a server that supports `UDP ASSOCIATE`; if not, use TCP-only
+mode. TUIC carries UDP natively over QUIC.
 
 **Will it get me VAC/anti-cheat banned?** It's a network router, not a game
 hook — but you are responsible for following each game's terms. Per-app mode is
