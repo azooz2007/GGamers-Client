@@ -72,9 +72,12 @@ that.
   a **TUNNEL / DIRECT** badge, ping, jitter, packets and bytes, plus a **live
   up/down bandwidth graph** with session totals.
 - **Tuning** — TCP/UDP low-latency options with a one-click **gaming preset**.
-- **Quality-of-life** — Dark / Light themes, minimise-to-tray, start-with-Windows,
-  a desktop notification when one of your apps starts tunneling, and a built-in
-  **updater**.
+- **Quality-of-life** — Dark / Light themes, a guided first run, minimise-to-tray,
+  start-with-Windows, a desktop notification when one of your apps starts tunneling,
+  **back up / restore your settings** (Export / Import config), and a built-in **updater**.
+- **Readable log** — normal activity and errors are always shown; routine warnings
+  are tucked behind a **Show warnings** toggle. Everything is also saved to a
+  session log file for support.
 - **Single self-contained `GGamers.exe`** — nothing to install alongside it.
 
 ---
@@ -130,8 +133,11 @@ conflicting changes mid-session — press **Stop** to change them.
   *Show direct connections* toggle.
 - **Tuning** — TCP/UDP low-latency options and the one-click gaming preset (it
   greys out when your settings already match it).
-- **Log** — what the engine is doing, and connection-test results.
-- **About** — version, links, and **Check for updates**.
+- **Log** — what the engine is doing, and connection-test results. Normal lines and
+  errors are always shown; tick **Show warnings** to mix routine warnings back in.
+  Everything is also written to `%LOCALAPPDATA%\GGamers\session.log`.
+- **About** — version, links, **Check for updates**, and **Export / Import** your
+  configuration (a handy backup; saved passwords stay encrypted to this PC).
 
 ---
 
@@ -165,6 +171,9 @@ from here any time.
   off** and use **Per-app** mode, so downloads and gameplay share one exit IP.
 - **UDP not working** — some servers don't support UDP relay; the app falls back
   to TCP-only automatically (shown in the Log).
+- **Something misbehaved mid-session** — open the Log and tick **Show warnings**, or
+  send the session log at `%LOCALAPPDATA%\GGamers\session.log` — it records the full
+  run (including the tunnel client's own messages).
 
 ---
 
