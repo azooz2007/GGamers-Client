@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="GGamers-Client.exe"><img src="https://img.shields.io/badge/version-4.0.0-19E3C0?style=for-the-badge" alt="version"></a>
+  <a href="GGamers-Client.exe"><img src="https://img.shields.io/badge/version-4.1.0-19E3C0?style=for-the-badge" alt="version"></a>
   &nbsp;
   <a href="GGamers-Client.exe"><img src="https://img.shields.io/badge/⬇%20Download-GGamers--Client.exe-2ecc71?style=for-the-badge" alt="download"></a>
 </p>
@@ -60,10 +60,15 @@ that.
 ## Highlights
 
 - **Two transports:**
-  - **SOCKS5** — Custom (host / port / user / pass) or **Subscribed** (auto-fetch
-    your server list and ping them, pick the fastest).
+  - **SOCKS5** — **Custom** (a saved list of your own servers: add several, pick from
+    a dropdown, edit or delete with the ⚙ button) or **Subscribed** (auto-fetch your
+    server list and ping them, pick the fastest).
   - **TUIC v5 (QUIC)** — paste a `tuic://` share link; a bundled client dials your
     server over QUIC with native UDP relay + BBR congestion control. Great for games.
+- **Live server ping** next to the selected server (refreshes every 5 s), with its
+  country flag — for all three transports.
+- **3× UDP redundancy** (optional) — send each game packet three times to ride out
+  packet loss. Off by default each launch.
 - **Three modes:** **Global** (everything), **Per-app** (only apps you select — with
   icons; double-click to add/remove), **Proxy Debug** (only what you launch).
 - **Self-healing UDP relay** — keepalives + automatic re-association so a game
@@ -108,7 +113,8 @@ Your settings live in the install folder and are kept across updates.
 ## Quick start
 
 1. Open the **Connection** tab and choose a server:
-   - **Custom SOCKS5** — type host, port and (optional) username/password, or
+   - **Custom SOCKS5** — click **+ Add server**, enter host / port / (optional)
+     credentials; add as many as you like and pick from the dropdown, or
    - **Subscribed SOCKS5** — press **Refresh list**, then pick the fastest server, or
    - **TUIC v5** — press **📋 Paste from clipboard** with a `tuic://` link copied.
 2. (Optional) **Test connection** to confirm the server answers.
