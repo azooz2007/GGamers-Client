@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="GGamers-Client.exe"><img src="https://img.shields.io/badge/version-4.1.0-19E3C0?style=for-the-badge" alt="version"></a>
+  <a href="GGamers-Client.exe"><img src="https://img.shields.io/badge/version-4.2.0-19E3C0?style=for-the-badge" alt="version"></a>
   &nbsp;
   <a href="GGamers-Client.exe"><img src="https://img.shields.io/badge/⬇%20Download-GGamers--Client.exe-2ecc71?style=for-the-badge" alt="download"></a>
 </p>
@@ -136,7 +136,10 @@ conflicting changes mid-session — press **Stop** to change them.
 - **Mode &amp; Apps** — Global / Per-app / Debug, and the app pickers (with icons;
   double-click to add or remove).
 - **Connections** — live tunnel activity, the bandwidth graph and the
-  *Show direct connections* toggle.
+  *Show direct connections* toggle. Latency is re-measured every few seconds (TCP
+  port-ping for accuracy). **Right-click a connection** to copy its IP, terminate it,
+  or set a temporary **speed cap** (upload/download) — capped rows show a purple
+  **CAPPED** badge and the cap clears when the connection ends or you close the app.
 - **Tuning** — TCP/UDP low-latency options and the one-click gaming preset (it
   greys out when your settings already match it).
 - **Log** — what the engine is doing, and connection-test results. Normal lines and
