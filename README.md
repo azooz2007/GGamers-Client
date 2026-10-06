@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="GGamers-Client.exe"><img src="https://img.shields.io/badge/version-4.2.0-19E3C0?style=for-the-badge" alt="version"></a>
+  <a href="GGamers-Client.exe"><img src="https://img.shields.io/badge/version-5.0.0-19E3C0?style=for-the-badge" alt="version"></a>
   &nbsp;
   <a href="GGamers-Client.exe"><img src="https://img.shields.io/badge/⬇%20Download-GGamers--Client.exe-2ecc71?style=for-the-badge" alt="download"></a>
 </p>
@@ -130,9 +130,11 @@ conflicting changes mid-session — press **Stop** to change them.
 
 ## The app, tab by tab
 
-- **Connection** — pick your server (Custom / Subscribed / TUIC), protocol
+- **Server** — pick your server (Custom / Subscription / TUIC), protocol
   (UDP relay for games, or TCP-only), and options (bypass web, bypass LAN,
-  tunnel DNS). **Test connection** checks it end-to-end.
+  3× UDP redundancy, tunnel DNS). The **🎮 gaming preset** and a **⚙ Settings**
+  popup (low-latency TCP/UDP tuning, Save / Cancel / Reset) sit at the top, and
+  **Test connection** checks it end-to-end.
 - **Mode &amp; Apps** — Global / Per-app / Debug, and the app pickers (with icons;
   double-click to add or remove).
 - **Connections** — live tunnel activity, the bandwidth graph and the
@@ -140,8 +142,6 @@ conflicting changes mid-session — press **Stop** to change them.
   port-ping for accuracy). **Right-click a connection** to copy its IP, terminate it,
   or set a temporary **speed cap** (upload/download) — capped rows show a purple
   **CAPPED** badge and the cap clears when the connection ends or you close the app.
-- **Tuning** — TCP/UDP low-latency options and the one-click gaming preset (it
-  greys out when your settings already match it).
 - **Log** — what the engine is doing, and connection-test results. Normal lines and
   errors are always shown; tick **Show warnings** to mix routine warnings back in.
   Everything is also written to `%LOCALAPPDATA%\GGamers\session.log`.
