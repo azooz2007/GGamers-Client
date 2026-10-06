@@ -61,7 +61,7 @@ that.
 
 - **Two transports:**
   - **SOCKS5** — **Custom** (a saved list of your own servers: add several, pick from
-    a dropdown, edit or delete with the ⚙ button) or **Subscribed** (auto-fetch your
+    a dropdown, edit or delete with the ⚙ button) or **Subscription** (auto-fetch your
     server list and ping them, pick the fastest).
   - **TUIC v5 (QUIC)** — paste a `tuic://` share link; a bundled client dials your
     server over QUIC with native UDP relay + BBR congestion control. Great for games.
@@ -76,7 +76,8 @@ that.
 - **Live Connections view** — every connection with its **app icon**, destination,
   a **TUNNEL / DIRECT** badge, ping, jitter, packets and bytes, plus a **live
   up/down bandwidth graph** with session totals.
-- **Tuning** — TCP/UDP low-latency options with a one-click **gaming preset**.
+- **One-click gaming preset** on the Server tab, with a **⚙ Settings** popup for
+  fine-grained TCP/UDP low-latency tuning (Save / Cancel / Reset).
 - **Quality-of-life** — Dark / Light themes, a guided first run, minimise-to-tray,
   start-with-Windows, a desktop notification when one of your apps starts tunneling,
   **back up / restore your settings** (Export / Import config), and a built-in **updater**.
