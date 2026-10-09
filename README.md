@@ -78,6 +78,8 @@ that.
   up/down bandwidth graph** with session totals.
 - **One-click gaming preset** on the Server tab, with a **⚙ Settings** popup for
   fine-grained TCP/UDP low-latency tuning (Save / Cancel / Reset).
+- **Build custom routes (combos)** across the network on a world map, and for
+  ambassadors an **Invite friends** window to share one-click invite codes.
 - **Quality-of-life** — Dark / Light themes, a guided first run, minimise-to-tray,
   start-with-Windows, a desktop notification when one of your apps starts tunneling,
   **back up / restore your settings** (Export / Import config), and a built-in **updater**.
@@ -137,12 +139,14 @@ conflicting changes mid-session — press **Stop** to change them.
   popup (low-latency TCP/UDP tuning, Save / Cancel / Reset) sit at the top, and
   **Test connection** checks it end-to-end.
 - **Mode &amp; Apps** — Global / Per-app / Debug, and the app pickers (with icons;
-  double-click to add or remove).
+  double-click to add or remove). The running-apps list refreshes live without
+  interrupting your scrolling, with a **search box** and a **"titles" toggle** so you can
+  find a game by its window title (e.g. *"Age of Creations"*), not just the exe name.
 - **Connections** — live tunnel activity, the bandwidth graph and the
-  *Show direct connections* toggle. Latency is re-measured every few seconds (TCP
-  port-ping for accuracy). **Right-click a connection** to copy its IP, terminate it,
-  or set a temporary **speed cap** (upload/download) — capped rows show a purple
-  **CAPPED** badge and the cap clears when the connection ends or you close the app.
+  *Show direct connections* toggle (off each launch). **Right-click a connection** to copy
+  its IP, set a temporary **speed cap** (purple **CAPPED** badge), terminate it, or
+  **Build a connection combo** (opens the builder with that IP pre-filled and its country
+  auto-selected).
 - **Log** — what the engine is doing, and connection-test results. Normal lines and
   errors are always shown; tick **Show warnings** to mix routine warnings back in.
   Everything is also written to `%LOCALAPPDATA%\GGamers\session.log`.
