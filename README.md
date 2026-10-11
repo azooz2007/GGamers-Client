@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="GGamers-Client.exe"><img src="https://img.shields.io/badge/version-5.1.0-19E3C0?style=for-the-badge" alt="version"></a>
+  <a href="GGamers-Client.exe"><img src="https://img.shields.io/badge/version-5.4.0-19E3C0?style=for-the-badge" alt="version"></a>
   &nbsp;
   <a href="GGamers-Client.exe"><img src="https://img.shields.io/badge/⬇%20Download-GGamers--Client.exe-2ecc71?style=for-the-badge" alt="download"></a>
 </p>
@@ -69,6 +69,12 @@ that.
   country flag — for all three transports.
 - **3× UDP redundancy** (optional) — send each game packet three times to ride out
   packet loss. Off by default each launch.
+- **🔥 Aggressive mode** (GGamers Network) — when GGamers switches it on, your game
+  traffic rides an encrypted, duplicated-packet tunnel to the exit so lost packets
+  and ping spikes smooth out. It turns on automatically for you; staff can fine-tune
+  the options. A live status view shows exactly what's going through the tunnel.
+- **Only live servers are offered** — a server or combo that's down is hidden from the
+  list automatically and comes back when it recovers.
 - **Three modes:** **Global** (everything), **Per-app** (only apps you select — with
   icons; double-click to add/remove), **Proxy Debug** (only what you launch).
 - **Self-healing UDP relay** — keepalives + automatic re-association so a game
@@ -133,11 +139,11 @@ conflicting changes mid-session — press **Stop** to change them.
 
 ## The app, tab by tab
 
-- **Server** — pick your server (Custom / Subscription / TUIC), protocol
-  (UDP relay for games, or TCP-only), and options (bypass web, bypass LAN,
-  3× UDP redundancy, tunnel DNS). The **🎮 gaming preset** and a **⚙ Settings**
-  popup (low-latency TCP/UDP tuning, Save / Cancel / Reset) sit at the top, and
-  **Test connection** checks it end-to-end.
+- **Server** — a full-width **Server Connection** panel to pick your server
+  (Custom / Subscription / TUIC). Across the top: the **🎮 gaming preset**, a
+  **⚙ Protocol & options** popup (UDP relay vs TCP-only, bypass web / LAN,
+  3× UDP redundancy, tunnel DNS, and a link to the deeper low-latency tuning with
+  Save / Cancel / Reset), and **Test connection** to check it end-to-end.
 - **Mode &amp; Apps** — Global / Per-app / Debug, and the app pickers (with icons;
   double-click to add or remove). The running-apps list refreshes live without
   interrupting your scrolling, with a **search box** and a **"titles" toggle** so you can
