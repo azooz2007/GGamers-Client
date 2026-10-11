@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="GGamers-Client.exe"><img src="https://img.shields.io/badge/version-5.4.0-19E3C0?style=for-the-badge" alt="version"></a>
+  <a href="GGamers-Client.exe"><img src="https://img.shields.io/badge/version-5.4.1-19E3C0?style=for-the-badge" alt="version"></a>
   &nbsp;
   <a href="GGamers-Client.exe"><img src="https://img.shields.io/badge/⬇%20Download-GGamers--Client.exe-2ecc71?style=for-the-badge" alt="download"></a>
 </p>
@@ -139,8 +139,9 @@ conflicting changes mid-session — press **Stop** to change them.
 
 ## The app, tab by tab
 
-- **Server** — a full-width **Server Connection** panel to pick your server
-  (Custom / Subscription / TUIC). Across the top: the **🎮 gaming preset**, a
+- **Server** — the **Server Connection** panel to pick your server
+  (Custom / Subscription / TUIC), with the **GGamers chat** beside it (online users
+  wrap inline under the message box). Across the top: the **🎮 gaming preset**, a
   **⚙ Protocol & options** popup (UDP relay vs TCP-only, bypass web / LAN,
   3× UDP redundancy, tunnel DNS, and a link to the deeper low-latency tuning with
   Save / Cancel / Reset), and **Test connection** to check it end-to-end.
