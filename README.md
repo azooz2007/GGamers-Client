@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="GGamers-Client.exe"><img src="https://img.shields.io/badge/version-5.4.1-19E3C0?style=for-the-badge" alt="version"></a>
+  <a href="GGamers-Client.exe"><img src="https://img.shields.io/badge/version-5.6.0-19E3C0?style=for-the-badge" alt="version"></a>
   &nbsp;
   <a href="GGamers-Client.exe"><img src="https://img.shields.io/badge/⬇%20Download-GGamers--Client.exe-2ecc71?style=for-the-badge" alt="download"></a>
 </p>
@@ -72,7 +72,8 @@ that.
 - **🔥 Aggressive mode** (GGamers Network) — when GGamers switches it on, your game
   traffic rides an encrypted, duplicated-packet tunnel to the exit so lost packets
   and ping spikes smooth out. It turns on automatically for you; staff can fine-tune
-  the options. A live status view shows exactly what's going through the tunnel.
+  the options. A live picture shows your route: lines from your PC to the exit
+  node, with its flag and your latency, and lights flowing while your game uses it.
 - **Only live servers are offered** — a server or combo that's down is hidden from the
   list automatically and comes back when it recovers.
 - **Three modes:** **Global** (everything), **Per-app** (only apps you select — with
@@ -82,8 +83,8 @@ that.
 - **Live Connections view** — every connection with its **app icon**, destination,
   a **TUNNEL / DIRECT** badge, ping, jitter, packets and bytes, plus a **live
   up/down bandwidth graph** with session totals.
-- **One-click gaming preset** on the Server tab, with a **⚙ Settings** popup for
-  fine-grained TCP/UDP low-latency tuning (Save / Cancel / Reset).
+- **Low-latency TCP/UDP tuning** inside **⚙ Protocol & options**. GGamers keeps the
+  recommended switches on for you, and locked ones show "Enabled by developer".
 - **Build custom routes (combos)** across the network on a world map, and for
   ambassadors an **Invite friends** window to share one-click invite codes.
 - **Quality-of-life** — Dark / Light themes, a guided first run, minimise-to-tray,
@@ -141,10 +142,11 @@ conflicting changes mid-session — press **Stop** to change them.
 
 - **Server** — the **Server Connection** panel to pick your server
   (Custom / Subscription / TUIC), with the **GGamers chat** beside it (online users
-  wrap inline under the message box). Across the top: the **🎮 gaming preset**, a
-  **⚙ Protocol & options** popup (UDP relay vs TCP-only, bypass web / LAN,
-  3× UDP redundancy, tunnel DNS, and a link to the deeper low-latency tuning with
-  Save / Cancel / Reset), and **Test connection** to check it end-to-end.
+  wrap inline under the message box, with a switch to mute the new-message sound).
+  Across the top: a **⚙ Protocol & options** popup (UDP relay vs TCP-only, bypass
+  web / LAN, 3× UDP redundancy, tunnel DNS and the low-latency tuning switches) and
+  **Test connection** to check it end-to-end. **⛓ Combos & Marketplace** stays open
+  while you're connected, and new combos show up in the server list right away.
 - **Mode &amp; Apps** — Global / Per-app / Debug, and the app pickers (with icons;
   double-click to add or remove). The running-apps list refreshes live without
   interrupting your scrolling, with a **search box** and a **"titles" toggle** so you can
