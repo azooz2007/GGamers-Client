@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="GGamers-Client.exe"><img src="https://img.shields.io/badge/version-6.3.1-19E3C0?style=for-the-badge" alt="version"></a>
+  <a href="GGamers-Client.exe"><img src="https://img.shields.io/badge/version-6.4.0-19E3C0?style=for-the-badge" alt="version"></a>
   &nbsp;
   <a href="GGamers-Client.exe"><img src="https://img.shields.io/badge/⬇%20Download-GGamers--Client.exe-2ecc71?style=for-the-badge" alt="download"></a>
 </p>
@@ -87,6 +87,13 @@ that.
   recommended switches on for you, and locked ones show "Enabled by developer".
 - **Build custom routes (combos)** across the network on a world map, and for
   ambassadors an **Invite friends** window to share one-click invite codes.
+  Press **▶ Use** on any combo and your connection switches to it straight away,
+  even while you're connected. The app reconnects on the combo, and if GGamers can't
+  open it right now you stay connected as before and the app tells you why.
+- **Account notices** — the app shows what GGamers says about your account, as it
+  says it: a reminder (and one notification a day) when your subscription ends within
+  7 days, and the reason when you can't connect (subscription ended, data used up).
+  Free trial accounts can connect to servers and official combos.
 - **Quality-of-life** — Dark / Light themes, a guided first run, minimise-to-tray,
   start-with-Windows, a desktop notification when one of your apps starts tunneling,
   **back up / restore your settings** (Export / Import config), and a built-in **updater**.
@@ -147,6 +154,8 @@ conflicting changes mid-session — press **Stop** to change them.
   web / LAN, 3× UDP redundancy, tunnel DNS and the low-latency tuning switches) and
   **Test connection** to check it end-to-end. **⛓ Combos & Marketplace** stays open
   while you're connected, and new combos show up in the server list right away.
+  **▶ Use** on a combo switches your connection to it at once (connected: it
+  reconnects on the combo; not connected: it connects).
 - **Mode &amp; Apps** — Global / Per-app / Debug, and the app pickers (with icons;
   double-click to add or remove). The running-apps list refreshes live without
   interrupting your scrolling, with a **search box** and a **"titles" toggle** so you can
@@ -155,7 +164,7 @@ conflicting changes mid-session — press **Stop** to change them.
   *Show direct connections* toggle (off each launch). **Right-click a connection** to copy
   its IP, set a temporary **speed cap** (purple **CAPPED** badge), terminate it, or
   **Build a connection combo** (opens the builder with that IP pre-filled and its country
-  auto-selected).
+  auto-selected). **▶ Use** there switches your connection to the combo too.
 - **Log** — what the engine is doing, and connection-test results. Normal lines and
   errors are always shown; tick **Show warnings** to mix routine warnings back in.
   Everything is also written to `%LOCALAPPDATA%\GGamers\session.log`.
@@ -194,6 +203,11 @@ from here any time.
   off** and use **Per-app** mode, so downloads and gameplay share one exit IP.
 - **UDP not working** — some servers don't support UDP relay; the app falls back
   to TCP-only automatically (shown in the Log).
+- **Start says you can't connect** — the line under your account says why (for
+  example your subscription ended or your data is used up). Renew on the GGamers
+  panel; once it's renewed you can connect again.
+- **"This device already had a free trial"** — a device gets one free trial. Sign in
+  with the account that used it, or ask for a subscription for this one.
 - **Something misbehaved mid-session** — open the Log and tick **Show warnings**, or
   send the session log at `%LOCALAPPDATA%\GGamers\session.log` — it records the full
   run (including the tunnel client's own messages).
