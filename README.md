@@ -94,6 +94,8 @@ that.
   says it: a reminder (and one notification a day) when your subscription ends within
   7 days, and the reason when you can't connect (subscription ended, data used up).
   Free trial accounts can connect to servers and official combos.
+- **Sign in with your username or your email** on GGamers Network. Your registration
+  email is shown under your subscription (to change it, contact support).
 - **Quality-of-life** — Dark / Light themes, a guided first run, minimise-to-tray,
   start-with-Windows, a desktop notification when one of your apps starts tunneling,
   **back up / restore your settings** (Export / Import config), and a built-in **updater**.
